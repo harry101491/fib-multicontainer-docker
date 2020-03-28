@@ -1,0 +1,24 @@
+{
+  "name": "fib-calc-worker",
+  "version": "1.0.0",
+  "description": "node service to calculate fibonacci number with given index",
+  "main": "app.js",
+  "scripts": {
+    "start": "tsc && nodemon dist/src/app.js"
+  },
+  "author": {
+    "name": "Harshit Pareek",
+    "age": 28
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.31",
+    "@types/redis": "^2.8.16",
+    "redis": "^3.0.2"
+  }
+}
