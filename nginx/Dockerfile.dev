@@ -1,4 +1,4 @@
 # Create a base image
 FROM nginx
 # Copy my default conf file to nginx default conf
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./default.conf /etc/nginx/conf.c/default.conf
