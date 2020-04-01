@@ -17,7 +17,6 @@ services:
         ports:
             - "4000:80"
     api:
-        tty: true
         depends_on:
             - postgres
         build:
@@ -36,7 +35,7 @@ services:
             - PG_PASSWORD=postgres_password
             - PG_PORT=5432
     client:
-        tty: true
+        stdin_open: true
         build:
             context: ./client
             dockerfile: Dockerfile.dev
@@ -45,7 +44,6 @@ services:
             - /app/dist
             - ./client:/app
     worker:
-        tty: true
         build:
             context: ./worker
             dockerfile: Dockerfile.dev
