@@ -17,7 +17,7 @@ after_success:
     - docker build -t harshitpareek/multi-nginx -f ./nginx/Dockerfile.prod ./nginx
     - docker build -t harshitpareek/multi-api -f ./api/Dockerfile.prod ./api
     # Login to docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login docker.io -u "$DOCKER_ID" --password-stdin
     # Task to push the image to docker hub for fetching it by elastic bean stalk
     - docker push harshitpareek/multi-worker
     - docker push harshitpareek/multi-client
