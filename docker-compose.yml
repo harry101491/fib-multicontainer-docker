@@ -41,7 +41,7 @@ services:
             dockerfile: Dockerfile.dev
         volumes:
             - /app/node_modules
-            - /app/dist
+            - /app/build
             - ./client:/app
     worker:
         build:
