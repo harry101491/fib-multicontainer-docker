@@ -14,9 +14,8 @@ class Fib extends Component {
         this.fetchValues();
     }
 
-    async handleSubmitHandler(event: any) {
+    handleSubmitHandler = async (event: any) => {
         event.preventDefault();
-
         await axios.post('/api/values', {
             index: this.state.index
         });
@@ -29,7 +28,7 @@ class Fib extends Component {
         });
     }
 
-    async fetchValues() {
+    fetchValues = async () => {
         const values = await axios.get('/api/values/current');
         this.setState((prevState, props) => {
             return {
@@ -39,12 +38,22 @@ class Fib extends Component {
         });
     }
 
-    async fetchIndexes() {
+    fetchIndexes = async () => {
         const indexes = await axios.get('/api/values/all');
         this.setState((prevState, props) => {
             return {
                 ...prevState,
-                seenIndexes: indexes.data
+                seenIndices: indexes.data
+            };
+        });
+    }
+
+    handleOnChangeEvent = (event: any) => {
+        event.persist();
+        this.setState((prevState, props) => {
+            return {
+                ...prevState,
+                index: event.target.value
             };
         });
     }
@@ -71,14 +80,7 @@ class Fib extends Component {
                     <input 
                         type="text"
                         value={this.state.index}
-                        onChange={(event) => {
-                            this.setState((prevState, props) => {
-                                return {
-                                    ...prevState,
-                                    index: event.target.value
-                                };
-                            })  
-                        }}  
+                        onChange={this.handleOnChangeEvent}  
                     />
                     <button>Submit</button>
                 </form>
