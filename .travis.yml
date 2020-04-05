@@ -13,17 +13,17 @@ script:
 
 after_success:
     - docker build -t harshitpareek/multi-worker -f ./worker/Dockerfile.prod ./worker
-    - docker build -t harshitpareek/multi-client -f ./client/Dockerfile.prod ./client
+    - docker build -t harshitpareek/multi-react-client -f ./client/Dockerfile.prod ./client
     - docker build -t harshitpareek/multi-nginx -f ./nginx/Dockerfile.prod ./nginx
     - docker build -t harshitpareek/multi-api -f ./api/Dockerfile.prod ./api
     # Login to docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
     # Task to push the image to docker hub for fetching it by elastic bean stalk
-    - docker tag harshitpareek/multi-client hars1014/multi-client_1:latest
+    - docker tag harshitpareek/multi-react-client hars1014/multi-react-client:latest
     - docker tag harshitpareek/multi-worker hars1014/multi-worker:latest
     - docker tag harshitpareek/multi-api hars1014/multi-api:latest
     - docker tag harshitpareek/multi-nginx hars1014/multi-nginx:latest
     - docker push hars1014/multi-worker:latest
-    - docker push hars1014/multi-client_1:latest
+    - docker push hars1014/multi-react-client:latest
     - docker push hars1014/multi-nginx:latest
     - docker push hars1014/multi-api:latest
