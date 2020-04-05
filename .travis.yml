@@ -25,5 +25,5 @@ after_success:
     - docker tag harshitpareek/multi-nginx hars1014/multi-nginx:latest
     - docker push hars1014/multi-worker:latest
     - docker push hars1014/multi-client:latest
-    - docker push hars1014/multi-ngnix:latest
+    - docker push hars1014/multi-nginx:latest
     - docker push hars1014/multi-api:latest
