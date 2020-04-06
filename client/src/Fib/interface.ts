@@ -1,5 +1,5 @@
 export interface fibState {
     values: {[key: string]: any};
-    seenIndices: [];
+    seenIndices: any[];
     index: string;
 };

@@ -6,24 +6,20 @@ services:
     - docker
 
 before_install:
-    - docker build -t harshitpareek/client-test -f ./client/Dockerfile.dev ./client
+    - docker build -t hars1014/client-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true harshitpareek/client-test npm run test
+    - docker run -e CI=true hars1014/client-test npm run test
 
 after_success:
-    - docker build -t harshitpareek/multi-worker -f ./worker/Dockerfile.prod ./worker
-    - docker build -t harshitpareek/multi-client -f ./client/Dockerfile.prod ./client
-    - docker build -t harshitpareek/multi-nginx -f ./nginx/Dockerfile.prod ./nginx
-    - docker build -t harshitpareek/multi-api -f ./api/Dockerfile.prod ./api
+    - docker build -t hars1014/sample-worker -f ./worker/Dockerfile.prod ./worker
+    - docker build -t hars1014/sample-client -f ./client/Dockerfile.prod ./client
+    - docker build -t hars1014/sample-nginx -f ./nginx/Dockerfile.prod ./nginx
+    - docker build -t hars1014/sample-api -f ./api/Dockerfile.prod ./api
     # Login to docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
     # Task to push the image to docker hub for fetching it by elastic bean stalk
-    - docker tag harshitpareek/multi-client hars1014/multi-client:latest
-    - docker tag harshitpareek/multi-worker hars1014/multi-worker:latest
-    - docker tag harshitpareek/multi-api hars1014/multi-api:latest
-    - docker tag harshitpareek/multi-nginx hars1014/multi-nginx:latest
-    - docker push hars1014/multi-worker:latest
-    - docker push hars1014/multi-client:latest
-    - docker push hars1014/multi-nginx:latest
-    - docker push hars1014/multi-api:latest
+    - docker push hars1014/sample-worker
+    - docker push hars1014/sample-client
+    - docker push hars1014/sample-nginx
+    - docker push hars1014/sample-api

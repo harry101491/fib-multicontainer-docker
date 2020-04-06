@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "build": "tsc"
   },
   "author": {
     "name": "Harshit Pareek",
