@@ -23,3 +23,15 @@ after_success:
     - docker push hars1014/sample-client
     - docker push hars1014/sample-nginx
     - docker push hars1014/sample-api
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "multi-container-docker"
+    env: "MultiContainerDocker-env"
+    bucket_name: "elasticbeanstalk-us-east-2-712991057399"
+    bucket_path: "multi-docker"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY

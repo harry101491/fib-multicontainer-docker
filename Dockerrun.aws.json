@@ -1,0 +1,39 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinations": [
+        {
+            "name": "react-client",
+            "image": "hars1014/sample-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "api-server",
+            "image": "hars1014/sample-api",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "node-worker",
+            "image": "hars1014/sample-worker",
+            "hostname": "worker",
+            "essential": false
+        }, 
+        {
+            "name": "nginx-router",
+            "image": "hars1014/sample-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "react-client",
+                "api-server"
+            ]
+        }
+    ]
+}
