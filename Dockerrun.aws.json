@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinations": [
+    "containerDefinitions": [
         {
             "name": "react-client",
             "image": "hars1014/sample-client",
