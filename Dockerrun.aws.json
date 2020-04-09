@@ -6,24 +6,21 @@
             "image": "hars1014/sample-client",
             "hostname": "client",
             "essential": false,
-            "memoryReservation": 256,
-            "cpu": 1
+            "memoryReservation": 256
         },
         {
             "name": "api-server",
             "image": "hars1014/sample-api",
             "hostname": "api",
             "essential": false,
-            "memoryReservation": 256,
-            "cpu": 1
+            "memoryReservation": 256
         },
         {
             "name": "node-worker",
             "image": "hars1014/sample-worker",
             "hostname": "worker",
             "essential": false,
-            "memoryReservation": 256,
-            "cpu": 1
+            "memoryReservation": 256
         }, 
         {
             "name": "nginx-router",
@@ -31,7 +28,6 @@
             "hostname": "nginx",
             "essential": true,
             "memoryReservation": 256,
-            "cpu": 1,
             "portMappings": [
                 {
                     "hostPort": 80,
